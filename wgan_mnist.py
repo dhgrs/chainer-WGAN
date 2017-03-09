@@ -87,7 +87,7 @@ class WGANUpdater(training.StandardUpdater):
             loss_generator.backward()
             self._optimizers['generator'].update()
 
-        if self.iteration > 2500 or self.iteration % self.n_c == 0:
+        if self.iteration > 2500 and self.iteration % self.n_c == 0:
             self.generator.cleargrads()
             loss_generator.backward()
             self._optimizers['generator'].update()
